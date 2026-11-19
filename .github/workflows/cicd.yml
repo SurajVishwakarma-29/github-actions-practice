@@ -10,16 +10,19 @@ jobs:
         - name: clone the github
           run : echo "copy the github"
   build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: builde the repo
         run : echo "yo"
   test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: test the run
         run: echo ""
   deploy:
+    needs: [build,test]
     runs-on: ubuntu-latest
     steps:
       - name: suraj
